@@ -89,7 +89,7 @@ def yearwise_medal_tally(df, country):
 def country_event_heatmap(df, country):
     tempdf = df.dropna(subset=['Medal'])
     tempdf.drop_duplicates(subset=['Team', 'NOC', 'Games', 'Year', 'Season', 'City', 'Sport', 'Event', 'Medal'], inplace=True)
-    newdf = tempdf[tempdf['region'] == 'USA']
+    newdf = tempdf[tempdf['region'] == country]
     pt = newdf.pivot_table(index='Sport', columns='Year', values='Medal', aggfunc='count').fillna(0)
     return pt
 
@@ -109,7 +109,7 @@ def weight_v_height(df, sport):
 
     athletedf = df.drop_duplicates(subset=['Name', 'region'])
     athletedf["Medal"].fillna('No Medal', inplace=True)
-    tempdf = athletedf[athletedf['Sport'] == 'Athletics']
+    tempdf = athletedf[athletedf['Sport'] == sport]
     return tempdf
 
 def men_v_women(df):
