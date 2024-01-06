@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 
 df = pd.read_csv(r'https://raw.githubusercontent.com/Prateek-013/Olympics-Data-Analysis/my-new-branch/athlete_events.csv')
-region_df = pd.read_csv(r'https://github.com/Prateek-013/Olympics-Data-Analysis/tree/my-new-branch/noc_regions.csv')
+region_df = pd.read_csv(r'https://raw.githubusercontent.com/Prateek-013/Olympics-Data-Analysis/my-new-branch/noc_regions.csv')
 
 
 
