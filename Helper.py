@@ -95,14 +95,9 @@ def country_event_heatmap(df, country):
 
 
 def mostsuccessful_by_country(df, country):
-    tempdf = df.dropna(subset=['Medal'])
-
-    tempdf = tempdf[tempdf['region'] == country]
-
-    x = tempdf['Name'].value_counts().reset_index().merge(df, left_on='index', right_on='Name', how='left')[
-        ['index', 'Name_x', 'Sport']].drop_duplicates('index')
-
-    x.rename(columns={'index': 'Name', 'Name_x': 'Medals'}, inplace=True)
+    xdf = df.dropna(subset=['Medal'])
+    xdf = xdf[xdf['region'] == country]
+    x = xdf.groupby(['Name', 'Sport'])['Medal'].count().reset_index().sort_values('Medal', ascending=False)
     return x
 
 def weight_v_height(df, sport):
