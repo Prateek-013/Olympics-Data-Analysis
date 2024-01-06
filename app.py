@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 
-df = pd.read_csv('my-new-branch/athlete.csv')
+df = pd.read_csv('my-new-branch/athlete_events.csv')
 region_df = pd.read_csv('my-new-branch/noc_regions.csv')
 
 
